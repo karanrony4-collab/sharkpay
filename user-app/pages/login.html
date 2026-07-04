@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>SharkPay - Login</title>
+    <title>ShowPay - Login</title>
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/login.css" />
     <!-- Lucide Icons -->
@@ -14,15 +14,7 @@
   </head>
   <body>
     <div class="login-container">
-      <div class="header-shark">
-        <div class="header-left">
-          <div class="logo-circle">
-            <i data-lucide="waves" class="logo-icon"></i>
-          </div>
-          <span class="shark-title">SharkPay</span>
-        </div>
-        <button class="download-btn">Download</button>
-      </div>
+      <div class="header">LOG IN</div>
 
       <form id="loginForm">
         <div class="form-group">
@@ -31,7 +23,7 @@
             type="tel"
             id="mobile"
             class="form-control"
-            placeholder="9532364578"
+            placeholder="Enter Your Phone Number"
             maxlength="10"
             required
           />
@@ -43,14 +35,13 @@
             type="password"
             id="password"
             class="form-control"
-            placeholder="••••••••••••"
+            placeholder="Enter Password"
             required
           />
         </div>
 
-        <div class="auth-links">
-          <a href="#" class="register-link">Register</a>
-          <a href="#" class="forget-link">Forget Password</a>
+        <div class="forgot-password">
+          <a href="#">Forget Password</a>
         </div>
 
         <div
@@ -65,7 +56,7 @@
         ></div>
 
         <div class="login-btn-container">
-          <button type="submit" class="btn-primary login-btn-black" id="loginBtn">
+          <button type="submit" class="btn-primary" id="loginBtn">
             LOG IN
           </button>
         </div>

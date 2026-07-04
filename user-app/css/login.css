@@ -1,71 +1,22 @@
 /* user-app/css/login.css */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #ffffff;
-}
-
 .login-container {
   max-width: 400px;
   margin: 0 auto;
-  padding: 0 20px 20px 20px;
+  padding: 20px;
   background: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* SharkPay Header */
-.header-shark {
-  background: linear-gradient(135deg, #0e5df6, #2d7af8);
-  border-radius: 0 0 16px 16px;
-  padding: 16px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 -20px 40px -20px;
-  box-shadow: 0 4px 12px rgba(14, 93, 246, 0.2);
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo-circle {
-  background: #000;
-  color: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.logo-icon {
-  width: 24px;
-  height: 24px;
-}
-
-.shark-title {
-  color: white;
-  font-size: 18px;
+.header {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 20px;
   font-weight: 700;
-}
-
-.download-btn {
-  background: linear-gradient(135deg, #ff6b4a, #ff4d29);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(255, 107, 74, 0.4);
+  color: #007bff;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 40px;
 }
 
 .form-group {
@@ -75,60 +26,46 @@ body {
 
 .input-icon {
   position: absolute;
-  left: 16px;
+  left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  color: #999;
+  color: #a0a0a0;
   width: 20px;
   height: 20px;
 }
 
 .form-control {
   width: 100%;
-  padding: 18px 16px 18px 48px;
+  padding: 16px 16px 16px 45px;
   border: none;
-  background-color: #f9f9f9;
+  background-color: #f8f9fb;
   border-radius: 12px;
   font-size: 15px;
   outline: none;
-  font-weight: 500;
-  box-sizing: border-box;
+  transition: box-shadow 0.2s;
 }
 
 .form-control:focus {
-  background-color: #f0f0f0;
+  box-shadow: 0 0 0 2px #4da6ff;
 }
 
 .form-control::placeholder {
-  color: #333;
+  color: #a0a0a0;
 }
 
-.auth-links {
-  display: flex;
-  justify-content: space-between;
+.forgot-password {
+  text-align: right;
   margin-bottom: 40px;
 }
 
-.auth-links a {
+.forgot-password a {
   color: #007bff;
   text-decoration: none;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .login-btn-container {
   margin-top: auto;
   margin-bottom: 40px;
-}
-
-.login-btn-black {
-  width: 100%;
-  background: #000;
-  color: white;
-  border: none;
-  padding: 16px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
 }
