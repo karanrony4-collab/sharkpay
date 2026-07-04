@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "framework": null,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/user-app/pages/login.html",
+      "permanent": false
+    }
+  ]
+}

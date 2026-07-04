@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>SharkPay - Home</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/popup.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Header -->
+      <header class="top-header">
+        <div class="logo-text">SharkPay</div>
+      </header>
+
+      <!-- Slider -->
+      <div class="slider-container" id="sliderContainer">
+        <!-- Slides dynamically injected -->
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+
+      <div class="content-area">
+        <!-- Ratios -->
+        <div class="ratios-card">
+          <div class="ratio-left">
+            <div class="ratio-label">USDT Ratio</div>
+            <div class="ratio-value">1 USDT ≈ 107.61 INR</div>
+            <div class="ratio-sub">Bonus ratio: 2%</div>
+          </div>
+          <div class="ratio-right">
+            <div class="ratio-label">INR Bonus Ratio</div>
+            <div class="ratio-percent">4%</div>
+          </div>
+        </div>
+
+        <!-- Top up Button -->
+        <div class="bind-upi-text">You're not bound to UPI</div>
+        <div class="top-up-btn-container">
+          <button class="top-up-btn bind-upi-btn">Bind UPI Now</button>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-info">
+              <span class="stat-label">Balance</span>
+              <span class="stat-value">0.00</span>
+            </div>
+            <i data-lucide="chevron-right" class="chevron"></i>
+          </div>
+          <div class="stat-item">
+            <div class="stat-info">
+              <span class="stat-label">Today Received</span>
+              <span class="stat-value">0.00</span>
+            </div>
+            <i data-lucide="chevron-right" class="chevron"></i>
+          </div>
+          <div class="stat-item">
+            <div class="stat-info">
+              <span class="stat-label">Top up Bonus</span>
+              <span class="stat-value">0.00</span>
+            </div>
+            <i data-lucide="chevron-right" class="chevron"></i>
+          </div>
+          <div class="stat-item">
+            <div class="stat-info">
+              <span class="stat-label">Team Commission</span>
+              <span class="stat-value">0.00</span>
+            </div>
+            <i data-lucide="chevron-right" class="chevron"></i>
+          </div>
+        </div>
+
+        <!-- Tutorial -->
+        <div class="tutorial-section hidden">
+          <div class="tutorial-title">Tutorial</div>
+          <div class="tutorial-link">SharkPay Official Website</div>
+        </div>
+      </div>
+
+      <!-- Floating Button -->
+      <div class="floating-support">
+        <div class="message-icon"></div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+          <i data-lucide="home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i data-lucide="arrow-left-right"></i>
+          <span>Deposit</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i data-lucide="briefcase"></i>
+          <span>UPI</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i data-lucide="users"></i>
+          <span>Team</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i data-lucide="user"></i>
+          <span>Me</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Overlays -->
+    <div id="overlay" class="popup-overlay">
+      <!-- MPIN Popup -->
+      <div id="mpinPopup" class="mpin-popup hidden">
+        <div class="mpin-title">Enter your mpin</div>
+        <div class="mpin-inputs" id="mpinInputs">
+          <input type="tel" class="mpin-box" maxlength="1" autocomplete="off" />
+          <input type="tel" class="mpin-box" maxlength="1" autocomplete="off" />
+          <input type="tel" class="mpin-box" maxlength="1" autocomplete="off" />
+          <input type="tel" class="mpin-box" maxlength="1" autocomplete="off" />
+          <input type="tel" class="mpin-box" maxlength="1" autocomplete="off" />
+          <input type="tel" class="mpin-box" maxlength="1" autocomplete="off" />
+        </div>
+      </div>
+
+      <!-- Success Popup -->
+      <div id="successPopup" class="success-popup hidden">
+        <div class="success-icon">
+          <i data-lucide="check" style="width: 24px; height: 24px"></i>
+        </div>
+        <div class="success-text">
+          Your account updated successfully.<br />
+          Please wait some time.
+        </div>
+      </div>
+
+      <!-- Video Popup -->
+      <div id="videoPopup" class="video-popup hidden">
+        <button class="video-close" id="videoCloseBtn">
+          <i data-lucide="x" style="width: 16px; height: 16px"></i>
+        </button>
+        <video id="popupVideo" class="video-player" loop autoplay playsinline></video>
+      </div>
+
+      <!-- Telegram Popup -->
+      <div id="telegramPopup" class="telegram-popup hidden">
+        <button class="telegram-close" id="telegramCloseBtn">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="telegram-icon">
+          <i
+            data-lucide="send"
+            style="width: 30px; height: 30px; margin-left: -2px"
+          ></i>
+        </div>
+        <div class="telegram-title">Join our Telegram</div>
+        <div class="telegram-desc">
+          Get latest updates, offers and priority support on our official
+          channel.
+        </div>
+        <a href="#" id="telegramJoinBtn" target="_blank" class="btn-telegram"
+          >Join Telegram Channel</a
+        >
+      </div>
+    </div>
+
+    <script type="module" src="../js/config/supabase.js"></script>
+    <script type="module" src="../js/home.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login - ShowPay</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-login-wrapper">
+      <div class="admin-login-box">
+        <div class="admin-title">Admin Portal</div>
+        <form id="adminLoginForm">
+          <input
+            type="email"
+            id="email"
+            class="admin-input"
+            placeholder="admin@showpay.com"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            class="admin-input"
+            placeholder="admin@0123"
+            required
+          />
+          <div
+            id="errorMsg"
+            class="hidden text-red-500 text-center mb-4 text-sm"
+          ></div>
+          <button type="submit" class="admin-btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("adminLoginForm")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          if (email === "admin@showpay.com" && password === "admin@0123") {
+            localStorage.setItem("showpay_admin_session", "true");
+            window.location.href = "./dashboard.html";
+          } else {
+            const err = document.getElementById("errorMsg");
+            err.textContent = "Invalid credentials";
+            err.classList.remove("hidden");
+          }
+        });
+    </script>
+  </body>
+</html>
