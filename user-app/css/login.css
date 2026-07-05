@@ -53,12 +53,21 @@
   color: #a0a0a0;
 }
 
-.forgot-password {
-  text-align: right;
+.register-forgot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 40px;
 }
 
-.forgot-password a {
+.register-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.forgot-link {
   color: #007bff;
   text-decoration: none;
   font-size: 14px;
