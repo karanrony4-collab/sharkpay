@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/admin.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
   </head>
   <body>
     <div class="dashboard-layout">
@@ -202,8 +203,12 @@
         </header>
         <div class="content-body">
           <div class="card">
-            <h3>Reports</h3>
-            <p>Coming soon...</p>
+            <h3 style="margin-bottom: 20px; font-size: 20px;">Reports Management</h3>
+            <p style="margin-bottom: 20px; color: #6b7280;">Download a complete report of all registered users in PDF format.</p>
+            <button id="downloadPdfBtn" class="admin-btn" style="width: auto; padding: 12px 24px; display: inline-flex; align-items: center; gap: 8px;">
+              <i data-lucide="download"></i> Download All Users (PDF)
+            </button>
+            <div id="reportStatus" style="margin-top: 16px; font-size: 14px;"></div>
           </div>
         </div>
       </main>

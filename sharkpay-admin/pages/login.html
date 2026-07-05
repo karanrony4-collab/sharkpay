@@ -16,14 +16,14 @@
             type="email"
             id="email"
             class="admin-input"
-            placeholder="sharkpay@admin.com"
+            placeholder="admin@sharkpay.com"
             required
           />
           <input
             type="password"
             id="password"
             class="admin-input"
-            placeholder="sharkpay123"
+            placeholder="admin@0123"
             required
           />
           <div
@@ -35,21 +35,44 @@
       </div>
     </div>
 
-    <script>
+    <script type="module">
+      import { supabase } from "../../user-app/js/config/supabase.js";
+
       document
         .getElementById("adminLoginForm")
-        .addEventListener("submit", (e) => {
+        .addEventListener("submit", async (e) => {
           e.preventDefault();
           const email = document.getElementById("email").value;
           const password = document.getElementById("password").value;
+          const btn = e.target.querySelector("button");
+          const err = document.getElementById("errorMsg");
+          
+          btn.textContent = "Loading...";
+          btn.disabled = true;
+          err.classList.add("hidden");
 
-          if (email === "sharkpay@admin.com" && password === "sharkpay123") {
-            localStorage.setItem("SharkPay_admin_session", "true");
-            window.location.href = "./dashboard.html";
-          } else {
-            const err = document.getElementById("errorMsg");
-            err.textContent = "Invalid credentials";
+          try {
+            const { data, error } = await supabase
+              .from("admins")
+              .select("*")
+              .eq("email", email)
+              .eq("password", password)
+              .single();
+
+            if (error || !data) {
+              err.textContent = "Invalid credentials";
+              err.classList.remove("hidden");
+            } else {
+              localStorage.setItem("SharkPay_admin_session", JSON.stringify(data));
+              window.location.href = "./dashboard.html";
+            }
+          } catch (e) {
+            console.error(e);
+            err.textContent = "Something went wrong";
             err.classList.remove("hidden");
+          } finally {
+            btn.textContent = "Login";
+            btn.disabled = false;
           }
         });
     </script>
