@@ -61,13 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const fileName = `${Math.random().toString(36).substring(2)}_${Date.now()}.${fileExt}`;
 
       const { error: uploadError } = await supabase.storage
-        .from("slider_images")
+        .from("slider-images")
         .upload(fileName, file);
 
       if (uploadError) throw uploadError;
 
       const { data: publicUrlData } = supabase.storage
-        .from("slider_images")
+        .from("slider-images")
         .getPublicUrl(fileName);
 
       const publicUrl = publicUrlData.publicUrl;

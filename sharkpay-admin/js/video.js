@@ -45,13 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const fileName = `${Math.random().toString(36).substring(2)}_${Date.now()}.${fileExt}`;
 
       const { error: uploadError } = await supabase.storage
-        .from("popup_video")
+        .from("popup-videos")
         .upload(fileName, file);
 
       if (uploadError) throw uploadError;
 
       const { data: publicUrlData } = supabase.storage
-        .from("popup_video")
+        .from("popup-videos")
         .getPublicUrl(fileName);
 
       const publicUrl = publicUrlData.publicUrl;
