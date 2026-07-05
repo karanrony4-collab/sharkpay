@@ -1,22 +1,107 @@
 /* user-app/css/login.css */
-.login-container {
-  max-width: 400px;
+
+/* ==============================
+   LOGIN PAGE LAYOUT
+================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.login-page {
+  max-width: 480px;
   margin: 0 auto;
-  padding: 20px;
   background: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.header {
-  text-align: center;
-  padding: 20px 0;
-  font-size: 20px;
+/* ==============================
+   BLUE HEADER - Photo Exact Match
+================================ */
+.login-header {
+  background: linear-gradient(135deg, #1565e8 0%, #1a78f5 50%, #2563eb 100%);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(21, 101, 232, 0.3);
+}
+
+.login-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.shark-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.shark-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.shark-logo-fallback {
+  display: none;
+  font-size: 22px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  border-radius: 10px;
+}
+
+.header-brand-name {
+  color: #ffffff;
+  font-size: 22px;
   font-weight: 700;
-  color: #007bff;
-  border-bottom: 1px solid #f0f0f0;
-  margin-bottom: 40px;
+  letter-spacing: 0.5px;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #ff6b35, #f53d00);
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 22px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(255, 107, 53, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.download-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.5);
+}
+
+/* ==============================
+   LOGIN FORM CONTAINER
+================================ */
+.login-container {
+  flex: 1;
+  padding: 40px 20px 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group {
@@ -26,55 +111,116 @@
 
 .input-icon {
   position: absolute;
-  left: 15px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  color: #a0a0a0;
+  color: #b0b8c1;
   width: 20px;
   height: 20px;
 }
 
 .form-control {
   width: 100%;
-  padding: 16px 16px 16px 45px;
+  padding: 16px 16px 16px 48px;
   border: none;
-  background-color: #f8f9fb;
+  background-color: #f6f7fb;
   border-radius: 12px;
   font-size: 15px;
   outline: none;
+  color: #333;
   transition: box-shadow 0.2s;
 }
 
 .form-control:focus {
   box-shadow: 0 0 0 2px #4da6ff;
+  background-color: #f0f6ff;
 }
 
 .form-control::placeholder {
-  color: #a0a0a0;
+  color: #b0b8c1;
 }
 
+/* ==============================
+   REGISTER + FORGOT ROW
+================================ */
 .register-forgot-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
+  padding: 0 2px;
 }
 
 .register-link {
-  color: #007bff;
+  color: #1565e8;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.register-link:hover {
+  opacity: 0.75;
 }
 
 .forgot-link {
-  color: #007bff;
+  color: #1565e8;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
+  transition: opacity 0.2s;
 }
 
+.forgot-link:hover {
+  opacity: 0.75;
+}
+
+/* ==============================
+   ERROR MESSAGE
+================================ */
+.error-msg {
+  color: #ef4444;
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.error-msg.hidden {
+  display: none;
+}
+
+/* ==============================
+   LOGIN BUTTON - Black, Bottom
+================================ */
 .login-btn-container {
   margin-top: auto;
-  margin-bottom: 40px;
+  padding-bottom: 30px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 18px;
+  background: #111111;
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: #222222;
+  transform: scale(1.01);
+}
+
+.btn-primary:active {
+  transform: scale(0.99);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
