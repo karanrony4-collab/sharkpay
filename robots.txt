@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /sharkpay-admin/
+
+Sitemap: https://sharkpay.co.in/sitemap.xml
