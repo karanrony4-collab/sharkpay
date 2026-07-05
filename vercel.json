@@ -3,26 +3,11 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
-      "destination": "/user-app/pages/login.html"
-    },
-    {
-      "source": "/css/(.*)",
-      "destination": "/user-app/css/$1"
-    },
-    {
-      "source": "/js/(.*)",
-      "destination": "/user-app/js/$1"
-    },
-    {
-      "source": "/pages/(.*)",
-      "destination": "/user-app/pages/$1"
-    },
-    {
-      "source": "/assets/(.*)",
-      "destination": "/user-app/assets/$1"
+      "destination": "/user-app/pages/login.html",
+      "permanent": false
     }
   ],
   "headers": [
